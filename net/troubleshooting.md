@@ -1,4 +1,5 @@
 # Phase 1
+- This first phase involves creating a domain controller to be in service of a company's central authentication server.
 - Initially tried to download VirtualBox, but the system was looking error-filled when opened in VSCode, abandoned that plan, and instead switched to VMWare Workstation Pro 17, which has proven to be a valuable asset.
 - The next step was to download Windows Server 2022, and it was used to try to create the Workstation, but the error was "Windows cannot find the Microsoft License Terms. Make sure the installation sources are valid and restart the installation." I didn't understand and thought the server wasn't working.
 - Pivoted off Windows Server to download Windows 10 iso file, accidentally put it in my OneDrive, and learned that iso files take up a ton of space, and it took a while to get it fixed.
@@ -11,3 +12,22 @@
 - Renamed the PC to DC01 and restarted the computer for the changes to come through.
 - Opened Server Manager to install Active Directory Domain Services, which led to promoting the server to be a domain controller, creating a domain and the password for it, and then restarting the computer.
 - The administrator account was created and was successfully able to log in with the password that I set up
+
+# Phase 2
+- This second phase involves creating users and groups to recreate the feeling of a company.
+- Opened Active Directory Users and Computers, where you can see the company domain that was initially created.
+- Right-clicked on the company domain to create organizational units for different departments: Sales, HR, and IT.
+- Added users based on their job title and responsibilities, and checked off for the user to change their password the next time they log in.
+- Created Security groups and added users to their respective groups, and applied access control to the users based on their group
+
+# Phase 3
+
+# Phase 4
+
+# Phase 5
+
+# Phase 6
+
+# Phase 7
+
+# Phase 8
