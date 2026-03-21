@@ -1,0 +1,13 @@
+# Phase 1
+- Initially tried to download VirtualBox, but the system was looking error-filled when opened in VSCode, abandoned that plan, and instead switched to VMWare Workstation Pro 17, which has proven to be a valuable asset.
+- The next step was to download Windows Server 2022, and it was used to try to create the Workstation, but the error was "Windows cannot find the Microsoft License Terms. Make sure the installation sources are valid and restart the installation." I didn't understand and thought the server wasn't working.
+- Pivoted off Windows Server to download Windows 10 iso file, accidentally put it in my OneDrive, and learned that iso files take up a ton of space, and it took a while to get it fixed.
+- Took some time to adjust where the iso and virtual machine files can be put in a location where they can be accessed without affecting the computer.
+- The virtual machine was created with the Windows 10 iso file, and learned that the file doesn't have Server Manager, which is needed to install Active Directory Domain Services, leading to promoting the server to a domain controller.
+- I decided to create 2 client machines with the Windows 10 iso file that will be used for later phases.
+- Downloaded Windows Server 2019 due to looking up research that it was more compatible with Windows 10, and faced the same error as before.
+- Adjusted instead of picking the server file right away, I picked to install my own drive so that when the final adjustments showed up, I picked the server file and the machine was created.
+- Went to the control panel to set a static IP address, subnet mask, default gateway, and DNS server.
+- Renamed the PC to DC01 and restarted the computer for the changes to come through.
+- Opened Server Manager to install Active Directory Domain Services, which led to promoting the server to be a domain controller, creating a domain and the password for it, and then restarting the computer.
+- The administrator account was created and was successfully able to log in with the password that I set up
