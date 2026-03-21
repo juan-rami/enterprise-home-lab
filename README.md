@@ -2,7 +2,24 @@
 This is a step-by-step explanation of how this lab was able to be created as you see it.
 
 # Phase 1: Building the Domain Controller/Creating the Central Authentication Server
+## Server Info
+- Name: DC01
+- IP: 192.168.1.10
+- Domain: company.local
 
+## Roles Installed
+- Active Directory Domain Services
+
+## Step by Step
+- Installed Windows Server 2019
+- Created VM workstation
+- Configured static IP
+- Renamed server
+- Installed Active Directory Domain Services
+- Promoted to Domain Controller
+
+## Verification
+- Successfully logged in as company administrator
 
 # Phase 2: Creating the Organization's Structure
 
