@@ -66,6 +66,33 @@ Department: IT
 
 # Phase 3: Provisioning Employee Computers to the Company's Domain
 
+Purpose: Attempting to assign employee computers and connect them to the central authentication server.
+
+## Client Machines Created
+- SALES-PC
+- HR-PC
+Both use the Windows 10 OS
+
+## Network Configuration
+- All machines connected via NAT
+- Each machine is configured with a static IP within the same subnet
+- Clients configured to DC01 as the DNS server
+
+## Step by Step
+- Created two Windows client virtual machines
+- Renamed both client machines 
+- Configured DNS on both clients to lead them to DC01
+- Verified connectivity using ping
+- Joined both machines to the company domain
+- Restarted both machines after the domain join
+
+## Verification
+- Successfully logged into client machines using domain accounts:
+- company\john.sales
+- company\mary.hr
+- Users authenticated via Domain Controller
+- Command whoami confirmed domain login
+- Command echo %logonserver% returned DC01
 
 # Phase 4: Configuring the Shared Company Drive
 
