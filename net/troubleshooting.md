@@ -49,10 +49,24 @@
 - Turned on the SALES-PC and pressed Windows + r and typed in \\DC01\CompanyShare and clicked on it and the CompanyShare folder was there along with the Sales and HR folders.
 - I clicked on the sales folder and gained access, but was able to access the HR folder, which was not supposed to happen.
 - The adjustment that was made is going back to the DC-PC and adjusting the security groups, where in the HR folder, the SalesUsers group was added, and their permissions were set to denied.
-- Went back to the SALES-PC to access the HR folder and got the access denied message, and while double checking having access to the sales folder, which was successful.
+- Went back to the SALES-PC to access the HR folder and got the access denied message, and while double-checking, had access to the sales folder, which was successful.
 - Repeated the same steps for the HR-PC.
 
 # Phase 5
+- The fifth phase involves creating centralized IT management using Group Policy Objects
+- Went to DC01 and to Group Policy Management to create a GPO inside the company.local called Company Policy
+- Proceeded to edit the GPO and Computer Configuration - Policies - Windows Settings- Security Settings- Account Policies- Password Policy and enabled Password complexity requirements and length minimum of 8 characters
+- Next to User Configuration - Preferences - Windows Settings - Drive Maps and created a new mapped drive with the settings Location: \\DC01\CompanyShare Drive Letter: Z: Action: Create
+- To disable Control Panel, went to User Configuration - Policies - Administrative Templates and enabled Prohibit access to Control Panel
+- Went to C:\Windows\Web\Wallpaper and picked img0.jpg and added it to C:\CompanyShare and renamed it to wallpaper.jpg
+- User Configuration - Policies - Administrative Templates - Desktop - Desktop and set a network path: \\DC01\CompanyShare\wallpaper.jpg and chose Fill
+- Right-clicked Sales OU and HR OU to link them both to the company policy GPO
+- On both client PCs, went to the command center and ran gpupdate /force to apply the changes and then shutdown /r /t 0 to restart the computers.
+- When turned back on, the Z: drive shows up; Control Panel access is restricted, password policy applies, but no wallpaper
+- Double-checked to see if the wallpaper was in the company folder, and it shows on all 3 machines
+- Checked if the network path is right, and it was, so I ran gpupdate / force and restarted, and there were no results
+- Turned off Prohibit access to Control Panel to access Settings, and Show desktop background image was turned on, so running the same commands and no results
+
 
 # Phase 6
 
