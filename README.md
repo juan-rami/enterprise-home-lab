@@ -130,6 +130,33 @@ Test 2: mary.hr
 
 # Phase 5: Configuring Group Policy
 
+Purpose: Create centralized IT management using Group Policy Objects
+
+## Policies Configured
+Password policy:
+- Complexity enabled
+- Minimum length: 8 characters
+
+Drive Mapping:
+- Network drive mapped to: \DC01\CompanyShare
+- Drive letter: Z:
+
+Desktop Wallpaper
+- Custom wallpaper applied via network path
+
+Restrictions
+- Control access disabled
+
+## GPO Deployment
+- GPO Name: Company Policy
+- Linked to Sales and HR departments
+
+## Verification
+- Drive successfully mapped on client machines
+- Control Panel access restricted
+- Password policy enforced
+- Verified using gpresult
+- Wallpaper applied correctly
 
 # Phase 6: Emulating Real Onboarding Workflow
 
