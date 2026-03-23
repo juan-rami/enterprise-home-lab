@@ -34,15 +34,15 @@ Purpose: Recreate a company environment by creating Organizational Units, users,
 - IT
 
 ## Users Created/Info
-John Sale:
+John Sale
 Username: john.sales
 Department: Sales
 
-Mary HR:
+Mary HR
 Username: mary.hr
 Department: HR
 
-IT Admin: 
+IT Admin 
 Username: it.admin
 Department: IT
 
@@ -96,6 +96,37 @@ Both use the Windows 10 OS
 
 # Phase 4: Configuring the Shared Company Drive
 
+Purpose: Create the company folder and manage file access based on department using shared folders and security groups
+
+## Folder Structure
+C:\CompanyShare
+- Sales
+- HR
+
+## Shared Folder
+- \DC01\Company Share
+
+## Permissions Configurations
+Sales Folder
+- Group: SalesUsers
+- Access: Modify
+
+HR Folder
+- Group: HRUsers
+- Access: Modify
+
+## Testing
+Test 1: john.sales
+- Access Sales: Success
+- Access HR: Access Denied
+
+Test 2: mary.hr
+- Access HR: Access
+- Access Sales: Access Denied
+
+## Verfication
+- Permissions successfully restrict access by department
+- Users can only access their department folders
 
 # Phase 5: Configuring Group Policy
 
