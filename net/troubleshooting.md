@@ -42,6 +42,15 @@
 - Repeated the same process for HR-PC with the knowledge from the mistakes that were made previously, and now both clients are connected to the domain controller
 
 # Phase 4
+- The fourth phase involves creating a company folder that contains the Sales and HR folders and creating departmental access using shared folders and security groups.
+- Turned on the DC-PC and went to file explorer and created the CompanyShare folder on the local disk(C:\) and inside added the Sales and HR folders.
+- Right-clicked the CompanyShare folder and went to the Properties Sharing tab, and clicked Advanced Sharing and initially allowed permissions for everyone.
+- Right-Clicked the sales folder and went to the security tab, added the SalesUsers group, edited their permissions to modify, and proceeded to do the same steps for HRUsers and the HR folder
+- Turned on the SALES-PC and pressed Windows + r and typed in \\DC01\CompanyShare and clicked on it and the CompanyShare folder was there along with the Sales and HR folders.
+- I clicked on the sales folder and gained access, but was able to access the HR folder, which was not supposed to happen.
+- The adjustment that was made is going back to the DC-PC and adjusting the security groups, where in the HR folder, the SalesUsers group was added, and their permissions were set to denied.
+- Went back to the SALES-PC to access the HR folder and got the access denied message, and while double checking having access to the sales folder, which was successful.
+- Repeated the same steps for the HR-PC.
 
 # Phase 5
 
