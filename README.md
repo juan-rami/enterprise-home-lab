@@ -141,9 +141,6 @@ Drive Mapping:
 - Network drive mapped to: \DC01\CompanyShare
 - Drive letter: Z:
 
-Desktop Wallpaper
-- Custom wallpaper applied via network path
-
 Restrictions
 - Control access disabled
 
@@ -156,7 +153,6 @@ Restrictions
 - Control Panel access restricted
 - Password policy enforced
 - Verified using gpresult
-- Wallpaper applied correctly
 
 # Phase 6: Emulating Real Onboarding Workflow
 
