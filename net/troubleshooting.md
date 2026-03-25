@@ -78,5 +78,16 @@
 - Used the command prompt and ran the command net use to verify that Z: is mapped
 
 # Phase 7
-
+- The seventh phase involves creating a IT offboarding workflow and removing the previously created new user from the company
+- Went on DC-01 and opened Active Directory Users and Computers and right-clicked on juan.pope and clicked Disable Account.
+- Double-clicked on juan.pope and went to Member Of and selected SalesUsers and clicked Remove.
+- Tried logging in SALES-PC with juan.pope and account and got the message Your account has been disabled.
+- Created new user folders for each user in each of their respective department folders and created an archive folder inside the CompanyShare folder.
+- Right-clicked on juan.pope folder and choose the Properties security tab and set full control to both juan.pope and the administrators group.
+- Clicked on the advanced tab and picked Change next to where the owner was written, typed in Administrator, and then checked Replace owner on subcontainers and objects.
+- Back to Advanced Security settings and clicked Disable Inheritance and chose Covert Inherited permissions into explicit permissions.
+- Clicked Add and select a principal and picked locations to company.local and typed in juan.pope and checked names and set to full control; same method for administrators
+- Moved juan.pope folder to the archive folder and adjusted the folder properties and security set, both HR and Sales users to remove access to archived files.
+- Folder is preserved in the archive folder, but no user's side can access it.
+  
 # Phase 8
