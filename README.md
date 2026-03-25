@@ -179,5 +179,23 @@ Purpose: Create an onboarding process for a new employee
 
 # Phase 7: Emulating Real Offboarding Removal
 
+Purpose: Create an offboarding process to prevent unauthorized access.
+
+## User Deleted
+- juan.pope
+
+## Step by Step
+- Opened Active Directory Users and Computers
+- Went to the Sales OU and disabled juan.pope
+- Removed juan.pope from SaleUsers
+- Created user folder for each member
+- Set permissions on juan.pope file and moved to a newly created archive folder
+- Removed juan.pope from the archived file properties/security tab
+
+## Verification
+- juan.pope cannot log on
+- User cannot authenticate
+- No access to shared resources
+- Data reserved for auditing
 
 # Phase 8: Remote Administration
