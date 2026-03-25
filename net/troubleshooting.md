@@ -66,9 +66,16 @@
 - Double-checked to see if the wallpaper was in the company folder, and it shows on all 3 machines
 - Checked if the network path is right, and it was, so I ran gpupdate / force and restarted, and there were no results
 - Turned off Prohibit access to Control Panel to access Settings, and Show desktop background image was turned on, so running the same commands and no results
-
+- For now, skipping the wallpaper, as everything else is solved, but that one.
 
 # Phase 6
+- The sixth phase involves creating a IT onboarding workflow and adding a new user to the company.
+- Went on DC-01 and opened Active Directory Users and Computers and right-clicked on the Sales OU to add the new member, Juan Pope; unchecked user must change password at next logon for later purposes.
+- Double-clicked juan.pope and went on Member Of and added juan.pope to the SalesUsers group.
+- Logged on to the SALES-PC using the juan.pope account and verified that the Z: drive was on File Explorer.
+- Pressed Windows + R and confirmed that the CompanyShare folder was there.
+- Verified that the juan.pope account can access the Sales folder but cannot access the HR folder.
+- Used the command prompt and ran the command net use to verify that Z: is mapped
 
 # Phase 7
 
