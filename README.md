@@ -156,6 +156,26 @@ Restrictions
 
 # Phase 6: Emulating Real Onboarding Workflow
 
+Purpose: Create an onboarding process for a new employee
+
+## User Created/Info
+- Name: Juan Pope
+- Username: juan.pope
+- Department: Sales
+- Group: SalesUsers
+
+## Step by Step
+- Opened Active Directory Users and Computers
+- Went to the Sales OU and added juan.pope
+- Added juan.pope to SalesUsers
+- Logged on to SALES-PC with the juan.pope account
+- Verify that the network share drive and the CompanyShare folder are there
+- Checked if access to the Sales folder was allowed and the HR folder was not allowed
+
+## Verfication
+- User created and assigned
+- Login confirmed
+- Network access configured correctly
 
 # Phase 7: Emulating Real Offboarding Removal
 
