@@ -199,3 +199,22 @@ Purpose: Create an offboarding process to prevent unauthorized access.
 - Data reserved for auditing
 
 # Phase 8: Remote Administration
+
+Purpose: Create a Linux server to emulate IT support situations using remote tools
+
+## New Server Created
+- Linux
+
+## Step by Step
+- Enabled Remote Desktop by configuring RDP on client machines and allowing access through the firewall
+- Remote Desktop Connection from DC-01 to SALES-PC and HR-PC using mstsc and logged in with domain credentials
+- Created new Linux Server VM
+- Installed OpenSSH on Linux machine and enabled it
+- Connected to Linux server from DC-01 via SSH
+- Verified remote connection
+- Restarted SSH service and verified running
+
+## Verfication
+- RDP access to Windows clients
+- SSH access to Linux and Windows servers
+- Remote service management confirmed
