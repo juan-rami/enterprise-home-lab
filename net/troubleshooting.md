@@ -91,3 +91,25 @@
 - Folder is preserved in the archive folder, but no user's side can access it.
   
 # Phase 8
+- The eighth phase involves creating a new VM for Linux and a remote desktop connection to create a IT scenario.
+- Went on SALES-PC and pressed Windows + R and typed sysdm.cpl; went on remote tab and selected allow remote connections to this computer.
+- Opened Windows Defender Firewall and clicked Allow an app through firewall and made sure that Remote Desktop was selected.
+- Went on DC01 and pressed Windows + R and typed mstsc, and entered SALES-PC IP, and it failed.
+- Rechecked everything and one change made was unchecking the remote desktop, and rechecked it, and the second attempt worked and accessed SALES-PC from DC01.
+- Repeated the same steps for HR-PC.
+- Was confused at first about whether to install Linux on a Windows server and realized there was no internet on the servers, and tried to fix the internet to no avail.
+- Read the instructions that were given to me again, and clearly realized that the next step was to make a new VM for Linux.
+- Downloaded Ubuntu Desktop 24.04.4 LTS.
+- Created a new VM with the Ubuntu iso file, and it was successfully created, only to realize that the file version was put on the OneDrive, which is a no, so it was deleted and put in a new file away from OneDrive and was successfully recreated.
+- Installed OpenSSH via sudo apt update and sudo apt install openssh-server -y
+- Started SSH via sudo systemctl start ssh and enabled at boot via sudo systemctl enable ssh
+- Ran the ip a command to find the IP address, and it gave me 192.168.122.129, and went on DC01 and opened the command prompt to run ssh james-linux@192.168.122.129, and it failed to connect.
+- Tried to ping 192.168.122.129, and it gave the request timed out error
+- Shut off all the machines to make sure they are all set to NAT, and they were, and turned back on the Linux server and ran sudo system status ssh and got the running status.
+- Recognized that the Linux IP address is not set to the same network as the Windows Servers and ran sudo dhclient -v and got back that the command was not found, so next is to run sudo apt update and sudo apt install isc-dhcp-client -y and then put in sudo dhclient -v again and put ip a and it's still the same IP address as before.
+- Ran sudo netplan apply and sudo reboot, and after rebooting and relogging in, ran ip a and got the same results as before.
+- Opened the config file and ran sudo nano /etc/netplan/00-installer-config.yaml and wrote in network: version: 2 eternets: ens33 and wrote in the new IP address for the Linux server along with the default gateway of the network and saved my changes.
+- Ran ip a again and this time, the new IP address shows up.
+- Pinged the new IP address on DC-01, and it was a success.
+- Ran ssh james-linux@192.168.1.10 and gained Linux server access.
+- Restarted the SSH service via sudo systemctl status ssh and then put in sudo systemctl status ssh and got active(running)
