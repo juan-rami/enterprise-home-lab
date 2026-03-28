@@ -111,5 +111,5 @@
 - Opened the config file and ran sudo nano /etc/netplan/00-installer-config.yaml and wrote in network: version: 2 eternets: ens33 and wrote in the new IP address for the Linux server along with the default gateway of the network and saved my changes.
 - Ran ip a again and this time, the new IP address shows up.
 - Pinged the new IP address on DC-01, and it was a success.
-- Ran ssh james-linux@192.168.1.10 and gained Linux server access.
+- Ran ssh james-linux@192.168.1.40 and gained Linux server access.
 - Restarted the SSH service via sudo systemctl status ssh and then put in sudo systemctl status ssh and got active(running)
