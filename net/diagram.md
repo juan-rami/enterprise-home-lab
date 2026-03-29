@@ -1,14 +1,16 @@
 # Architecture Diagram
 
 ## Servers
-- DC01(Windows Server):
+DC01(Windows Server)
 - Active Directory
 -  DNS
 -  File Server
-- Client Machines
+
+Client Machines
 - SALES-PC
 - HR-PC
-- Linux Server
+
+Linux Server
 - OpenSSH enabled
 
 ## Network
