@@ -115,6 +115,12 @@ HR Folder
 - Group: HRUsers
 - Access: Modify
 
+## Step by Step
+- Created the CompanyShare folder on DC-01 on the local disk(C:)
+- Added both the Sales and HR folders on CompanyShare
+- Edited permissions for each folder to modify on the Security tab 
+- Added SalesUsers to the HR folder to set permissions to deny and vice versa
+
 ## Testing
 Test 1: john.sales
 - Access Sales: Success
@@ -147,6 +153,14 @@ Restrictions
 ## GPO Deployment
 - GPO Name: Company Policy
 - Linked to Sales and HR departments
+
+## Step by Step
+- Went to DC01 and Group Policy Management and created a GPO called Company Policy inside the company.local
+- Enabled Password complexity and a minimum of 8 characters
+- Created a new mapped drive
+- Disabled control panel access
+- Right-clicked both HR and Sales OU to link them to the company policy GPO
+- Ran gpupdate /force and shutdown /r /t 0 on the command prompt
 
 ## Verification
 - Drive successfully mapped on client machines
