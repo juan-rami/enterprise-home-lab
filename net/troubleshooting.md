@@ -67,6 +67,7 @@
 - Checked if the network path is right, and it was, so I ran gpupdate / force and restarted, and there were no results
 - Turned off Prohibit access to Control Panel to access Settings, and Show desktop background image was turned on, so running the same commands and no results
 - For now, skipping the wallpaper, as everything else is solved, but that one.
+- Update: inputted the wallpaper to all the Windows servers via picking img10.jpg and added it to the CompanyShare,  set a network path: \\DC01\CompanyShare\img10.jpg 
 
 # Phase 6
 - The sixth phase involves creating a IT onboarding workflow and adding a new user to the company.
