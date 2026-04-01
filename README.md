@@ -12,7 +12,7 @@ graph TD
       HR-PC[HR-PC <br/> Windows Client]
       LINUX[LINUX-FILE <br/> Ubuntu Server]
 
-      Host --- VN
+      Host --- |198.168.1.1| VN
       VN --- |198.168.1.10| DC01
       VN --- |198.168.1.20| SALES-PC
       VN --- |198.168.1.30| HR-PC
