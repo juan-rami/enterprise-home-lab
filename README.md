@@ -1,6 +1,36 @@
 # Enterprise-home-lab
 This is a overview of how this lab was created as you see it.
 
+# Overview Diagram
+  (Your Host Computer)
+
+                        │
+
+                        │
+
+                Virtual Network
+
+                        │
+
+     ┌──────────────────┼──────────────────┐
+
+     │                  │                  │
+
+  DC01(IP: 192.168.1.10)              SALES-PC(IP: 192.168.1.20)            HR-PC(IP: 192.168.1.30)
+
+Windows Server 2019       Windows 10            Windows 10
+
+Domain Controller    Client              Client
+
+                        │
+
+                        │
+
+                   LINUX-FILE
+
+                   Ubuntu Server(IP: 192.168.1.40)
+
+
 # Phase 1: Building the Domain Controller/Creating the Central Authentication Server
 
 Purpose: To build a domain controller to act as the central authentication server for the company in this lab.
