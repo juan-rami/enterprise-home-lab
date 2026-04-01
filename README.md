@@ -24,6 +24,11 @@ Purpose: To build a domain controller to act as the central authentication serve
 ## Verification
 - Successfully logged in as company administrator
 
+## Skills Learned
+- Created a Virtual Machine
+- Configuring IP addresses
+- Setting the computer to Domain Controller
+
 # Phase 2: Creating the Organization's Structure
 
 Purpose: Recreate a company environment by creating Organizational Units, users, and security groups in Active Directory.
@@ -64,6 +69,12 @@ Department: IT
 ## Verification
 - Users appear in their assigned OU and groups
 
+## Skills learned
+- Active Directory management
+- Administration management
+- Organization structure
+- Identity and access management
+
 # Phase 3: Provisioning Employee Computers to the Company's Domain
 
 Purpose: Attempting to assign employee computers and connect them to the central authentication server.
@@ -93,6 +104,12 @@ Both use the Windows 10 OS
 - Users authenticated via Domain Controller
 - Command whoami confirmed domain login
 - Command echo %logonserver% returned DC01
+
+## Skills Learned
+- Creating multiple client machines
+- Configuring DNS for company environments
+- Troubleshooting network connectivity(ping, DNS)
+- Authentication testing
 
 # Phase 4: Configuring the Shared Company Drive
 
@@ -134,6 +151,12 @@ Test 2: mary.hr
 - Permissions successfully restrict access by department
 - Users can only access their department folders
 
+## Skills Learned
+- File sharing
+- NTFS permission management
+- Group-based access control
+- Access testing
+
 # Phase 5: Configuring Group Policy
 
 Purpose: Create centralized IT management using Group Policy Objects
@@ -171,6 +194,12 @@ Restrictions
 - Wallpaper shows in all servers
 - Verified using gpresult
 
+## Skills learned
+- Creating a company group policy and deploying it
+- Creating a user environment
+- Implementing a central company system
+- Troubleshooting GPO application
+
 # Phase 6: Emulating Real Onboarding Workflow
 
 Purpose: Create an onboarding process for a new employee
@@ -194,6 +223,10 @@ Purpose: Create an onboarding process for a new employee
 - Login confirmed
 - Network access configured correctly
 
+## Skills learned
+- Configuring group membership
+- Network share access control
+
 # Phase 7: Emulating Real Offboarding Removal
 
 Purpose: Create an offboarding process to prevent unauthorized access.
@@ -215,6 +248,11 @@ Purpose: Create an offboarding process to prevent unauthorized access.
 - No access to shared resources
 - Data reserved for auditing
 
+## Skills learned
+- Security group management
+- File permissions
+- Data retention
+
 # Phase 8: Remote Administration
 
 Purpose: Create a Linux server to emulate IT support situations using remote tools
@@ -235,3 +273,12 @@ Purpose: Create a Linux server to emulate IT support situations using remote too
 - RDP access to Windows clients
 - SSH access to Linux and Windows servers
 - Remote service management confirmed
+
+## Skills learned
+- Setting up Remote Desktop
+- Linux administration
+- Network troubleshooting
+- Service management
+
+# Screenshots
+- Link: https://github.com/juan-rami/enterprise-home-lab/tree/main/screenshots
