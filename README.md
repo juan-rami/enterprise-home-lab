@@ -265,6 +265,7 @@ Purpose: Create a Linux server to emulate IT support situations using remote too
 ## Step by Step
 - Enabled Remote Desktop by configuring RDP on client machines and allowing access through the firewall
 - Remote Desktop Connection from DC-01 to SALES-PC and HR-PC using mstsc and logged in with domain credentials
+- Installed Ubuntu Desktop 24.04.4 LTS
 - Created new Linux Server VM
 - Installed OpenSSH on Linux machine and enabled it
 - Connected to Linux server from DC-01 via SSH
