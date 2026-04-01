@@ -40,16 +40,16 @@ Purpose: Recreate a company environment by creating Organizational Units, users,
 
 ## Users Created/Info
 John Sale
-Username: john.sales
-Department: Sales
+- Username: john.sales
+- Department: Sales
 
 Mary HR
-Username: mary.hr
-Department: HR
+- Username: mary.hr
+- Department: HR
 
 IT Admin 
-Username: it.admin
-Department: IT
+- Username: it.admin
+- Department: IT
 
 ## Security Groups Created
 - SalesUsers
@@ -82,6 +82,7 @@ Purpose: Attempting to assign employee computers and connect them to the central
 ## Client Machines Created
 - SALES-PC
 - HR-PC
+
 Both use the Windows 10 OS
 
 ## Network Configuration
@@ -90,6 +91,7 @@ Both use the Windows 10 OS
 - Clients configured to DC01 as the DNS server
 
 ## Step by Step
+- Installed Windows 10 iso file
 - Created two Windows client virtual machines
 - Renamed both client machines 
 - Configured DNS on both clients to lead them to DC01
