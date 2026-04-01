@@ -88,8 +88,11 @@ Security Groups
 Purpose: Attempting to assign employee computers and connect them to the central authentication server.
 
 ## Client Machines Created
-- SALES-PC
-- HR-PC
+SALES-PC
+- IP address: 192.168.1.20
+
+HR-PC
+- IP address: 192.168.1.30
 
 Both use the Windows 10 OS
 
@@ -294,7 +297,8 @@ Offboarding
 Purpose: Create a Linux server to emulate IT support situations using remote tools
 
 ## New Server Created
-- Linux
+Linux
+- IP address: 192.168.1.40
 
 ## Step by Step
 - Enabled Remote Desktop by configuring RDP on client machines and allowing access through the firewall
