@@ -1,5 +1,5 @@
 # Enterprise-home-lab
-This is a step-by-step explanation of how this lab was created as you see it.
+This is a overview of how this lab was created as you see it.
 
 # Phase 1: Building the Domain Controller/Creating the Central Authentication Server
 
@@ -284,4 +284,42 @@ Purpose: Create a Linux server to emulate IT support situations using remote too
 - Service management
 
 # Screenshots
-- Link: https://github.com/juan-rami/enterprise-home-lab/tree/main/screenshots
+## Active Directory
+- ![active directory](https://github.com/user-attachments/assets/1b01aaee-ff58-47f7-afb4-ec71bc6c9e05)
+## Security Groups
+- ![securitygroupsphase2](https://github.com/user-attachments/assets/7cb9205d-e56a-4683-9217-b90524db49d1)
+## Client PC
+- ![Phase 3 sales pc](https://github.com/user-attachments/assets/9f03d25a-085d-4e48-b116-5dd4c7092b1f)
+## Company Folder
+- ![phase 4 companyshare folder](https://github.com/user-attachments/assets/2468e8e6-b74d-4772-8856-135bbfdcc51f)
+## Access Denied
+- ![phase 4 HR access denied](https://github.com/user-attachments/assets/aa813820-d17d-4929-8284-77441966ef34)
+## Client Environment
+- ![phase 5 client environment ](https://github.com/user-attachments/assets/bb0a1f32-0063-4bb8-8165-8e730bac530c)
+## Password Policy
+- ![phase 5 password policy](https://github.com/user-attachments/assets/cef565f6-1df8-4436-b653-88d85f5a0919)
+## Wallpaper
+- ![Phase 5 wallpaper](https://github.com/user-attachments/assets/a682d981-8bb7-4f66-9cb2-9296c37a8544)
+## Onboarding
+- ![Phase 6 new user workstation](https://github.com/user-attachments/assets/b3eeea4f-3ca7-42b1-a567-c96032328fd8)
+## Offboarding
+- ![phase 7 disabled](https://github.com/user-attachments/assets/a81ba6eb-bcfb-4186-b324-462b1788f89e)
+## Remote Desktop
+- ![Phase 8 remote desktop](https://github.com/user-attachments/assets/be0af3a1-bf2b-4e21-9fa3-0ab752db3d7b)
+## SSH
+- ![phase 8 remote ssh](https://github.com/user-attachments/assets/b72a4f4d-2c4a-4b7f-8c16-139069df2a76)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
