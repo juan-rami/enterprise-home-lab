@@ -12,6 +12,7 @@
 
 ## Desktop Restrictions
 - Control Panel disabled
+- Enforced the same wallpaper on all servers
 
 ## Verfication
 - gpupdate /force used on all servers
