@@ -2,34 +2,24 @@
 This is a overview of how this lab was created as you see it.
 
 # Overview Diagram
-  (Your Host Computer)
 
-                        │
+```mermaid
+graph TD
+      Host[Your Host Computer]
+      VN{Virtual Network}
+      DC01[DC01 <br/> Windows Server <br/>Domain Controller]
+      SALES-PC[SALES-PC <br/> Windows Client]
+      HR-PC[HR-PC <br/> Windows Client]
+      LINUX[LINUX-FILE <br/> Ubuntu Server]
 
-                        │
-
-                Virtual Network
-
-                        │
-
-     ┌──────────────────┼──────────────────┐
-
-     │                  │                  │
-
-  DC01(IP: 192.168.1.10)              SALES-PC(IP: 192.168.1.20)            HR-PC(IP: 192.168.1.30)
-
-Windows Server 2019       Windows 10            Windows 10
-
-Domain Controller    Client              Client
-
-                        │
-
-                        │
-
-                   LINUX-FILE
-
-                   Ubuntu Server(IP: 192.168.1.40)
-
+      Host --- VN
+      VN --- |198.168.1.10| DC01
+      VN --- |198.168.1.20| SALES-PC
+      VN --- |198.168.1.30| HR-PC
+      DC01 --- |198.168.1.40| LINUX
+      SALES-PC --- |198.168.1.40| LINUX
+      HR-PC --- |198.168.1.40| LINUX
+```
 
 # Phase 1: Building the Domain Controller/Creating the Central Authentication Server
 
