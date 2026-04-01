@@ -8,29 +8,29 @@
 - I decided to create 2 client machines with the Windows 10 iso file that will be used for later phases.
 - Downloaded Windows Server 2019 due to looking up research that it was more compatible with Windows 10, and faced the same error as before.
 - Adjusted instead of picking the server file right away, I picked to install my own drive so that when the final adjustments showed up, I picked the server file and the machine was created.
-- Went to the control panel to set a static IP address, subnet mask, default gateway, and DNS server.
-- Renamed the PC to DC01 and restarted the computer for the changes to come through.
-- Opened Server Manager to install Active Directory Domain Services, which led to promoting the server to be a domain controller, creating a domain and the password for it, and then restarting the computer.
+- Went to the control panel - Network and Sharing center and clicked Change adapter settings; right-clicked Ethernet and selected Properties and picked IPv4 to set a static IP address, subnet mask, default gateway, and DNS server.
+- Right-clicked This PC and properties, and clicked Rename the PC to DC01 and restarted the computer for the changes to come through.
+- Opened Server Manager and clciked roles and Features and selected role-based installation to check Active Directory Domain Services and install it, then a notification flag came up and selected Promote this server to a domain controller, chose Add a new forest and entered the company.local domain and set the password.
 - The administrator account was created and was successfully able to log in with the password that I set up
 
 # Phase 2
 - This second phase involves creating users and groups to recreate the feeling of a company.
 - Opened Active Directory Users and Computers, where you can see the company domain that was initially created.
-- Right-clicked on the company domain to create organizational units for different departments: Sales, HR, and IT.
+- Right-clicked on the company domain and clicked New - Organizational Unit to create organizational units for different departments: Sales, HR, and IT.
 - Added users based on their job title and responsibilities, and checked off for the user to change their password the next time they log in.
-- Created Security groups and added users to their respective groups, and applied access control to the users based on their group
+- Right-clicked SalesOU and picked new - Group Created Security groups and added John Sales to the group by double-clicking SalesOU and went on the Members tab and clicked Add and typed in john.sales, and repeated the same steps for Mary Hr
 
 # Phase 3
 - The third phase involves creating two client machines and connecting them to a central authentication system via the domain controller previously created.
 - The two client machines were created using the Windows 10 iso file, compared to the Windows 2019 server for the DC to replicate the client machines as employee computers.
 - All machines are connected using NAT
 - The client machines have 2 GB RAM minimum compared to the Domain controller's minimum of 4 GB RAM.
-- Right-clicked on This PC and renamed each client machine to SALES-PC and HR-PC, respectively, and then restarted both.
-- First focused on SALES-PC and accessed the Ethernet properties for IPv4, and initially only set the same Preferred IP address to the DC's IP address.
-- Went to Settings and System to access Rename this PC(Advanced) and click Change to select Domain and entered the company domain, and got the error that it didn't exist.
+- Right-clicked on This PC and Properties - renamed this PC machine to SALES-PC and HR-PC, respectively, and then restarted both.
+- First focused on SALES-PC and accessed the Ethernet properties for IPv4 by opening ncpa.pl and selecting Ethernet - Properties - IPv4, and initially only set the same Preferred IP address to the DC's IP address.
+- Went to Settings and System - About to access Rename this PC(Advanced) and click Change to select Domain and entered the company domain, and got the error that it didn't exist.
 - Went to the DC to check if everything was functioning and the domain was there, and there was confusion, so the next step was going to the command center from the SALES-PC to ping the DC's IP address, and it failed to contact the domain controller, giving the request timed out error.
 - Back to the DC to check the IPv4 address, and they were as previously implemented, and ran ipconfig and got the same results.
-- One mistake that was made initially was only putting the preferred IP address and not implementing a static IP address, subnet mask, and default gateway.
+- One mistake that was made initially was only putting the preferred IP address and not implementing a static IP address, subnet mask, and default gateway, so that was done by opening ncpa.pl and selecting Ethernet - Properties - IPv4.
 - Went back to the command center to ping the DC's IP address and gathered a successful reply.
 - The mistake was that due to DNS and IP misconfiguration, the domain controller could not be contacted. It was resolved by correcting the DNS and adding a static IP address to point to DC01.
 - Going back to Settings and System to Rename this PC(Advanced), clicked Change and Domain, and typed in the company domain, and was directed to the administrator login.
@@ -44,10 +44,10 @@
 # Phase 4
 - The fourth phase involves creating a company folder that contains the Sales and HR folders and creating departmental access using shared folders and security groups.
 - Turned on the DC-PC and went to file explorer and created the CompanyShare folder on the local disk(C:\) and inside added the Sales and HR folders.
-- Right-clicked the CompanyShare folder and went to the Properties Sharing tab, and clicked Advanced Sharing and initially allowed permissions for everyone.
-- Right-Clicked the sales folder and went to the security tab, added the SalesUsers group, edited their permissions to modify, and proceeded to do the same steps for HRUsers and the HR folder
+- Right-clicked the CompanyShare folder and went to the Properties - Sharing tab, and clicked Advanced Sharing and initially allowed permissions for everyone.
+- Right-Clicked the sales folder and went to the properties - security tab, added the SalesUsers group, edited their permissions to modify, and proceeded to do the same steps for HRUsers and the HR folder
 - Turned on the SALES-PC and pressed Windows + r and typed in \\DC01\CompanyShare and clicked on it and the CompanyShare folder was there along with the Sales and HR folders.
-- I clicked on the sales folder and gained access, but was able to access the HR folder, which was not supposed to happen.
+- Logged in to SALES-PC clicked on the sales folder and gained access, but was able to access the HR folder, which was not supposed to happen.
 - The adjustment that was made is going back to the DC-PC and adjusting the security groups, where in the HR folder, the SalesUsers group was added, and their permissions were set to denied.
 - Went back to the SALES-PC to access the HR folder and got the access denied message, and while double-checking, had access to the sales folder, which was successful.
 - Repeated the same steps for the HR-PC.
