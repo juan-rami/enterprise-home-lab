@@ -149,6 +149,7 @@ Drive Mapping:
 
 Restrictions
 - Control access disabled
+- Same wallpaper applied to all servers
 
 ## GPO Deployment
 - GPO Name: Company Policy
@@ -160,12 +161,14 @@ Restrictions
 - Created a new mapped drive
 - Disabled control panel access
 - Right-clicked both HR and Sales OU to link them to the company policy GPO
+- Picked img10.jpg and added it to the CompanyShare, enabled desktop wallpaper, and set a network path
 - Ran gpupdate /force and shutdown /r /t 0 on the command prompt
 
 ## Verification
 - Drive successfully mapped on client machines
 - Control Panel access restricted
 - Password policy enforced
+- Wallpaper shows in all servers
 - Verified using gpresult
 
 # Phase 6: Emulating Real Onboarding Workflow
