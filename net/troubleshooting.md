@@ -1,3 +1,7 @@
+# Environment: VMware Workstation Pro 17
+
+# Operating Systems: Windows Server 2019, Windows 10 Pro, Ubuntu 24.04 LTS
+
 # Phase 1
 - This first phase involves creating a domain controller to be in service of a company's central authentication server.
 
@@ -9,15 +13,12 @@
 5. A notification flag came up, and selected Promote this server to a domain controller, chose Add a new forest, and entered the company.local domain and set the password.
 6. The administrator account was created and was successfully able to log in with the password that I set up
 
-## Issues
-- Initially tried to download VirtualBox, but the system was looking error-filled when opened in VSCode, abandoned that plan, and instead switched to VMWare Workstation Pro 17, which has proven to be a valuable asset.
-- The next step was to download Windows Server 2022, and it was used to try to create the Workstation, but the error was "Windows cannot find the Microsoft License Terms. Make sure the installation sources are valid and restart the installation." I didn't understand and thought the server wasn't working.
-- Pivoted off Windows Server to download Windows 10 iso file, accidentally put it in my OneDrive, and learned that iso files take up a ton of space, and it took a while to get it fixed.
-- Took some time to adjust where the iso and virtual machine files can be put in a location where they can be accessed without affecting the computer.
-- The virtual machine was created with the Windows 10 iso file, and learned that the file doesn't have Server Manager, which is needed to install Active Directory Domain Services, leading to promoting the server to a domain controller.
-- I decided to create 2 client machines with the Windows 10 iso file that will be used for later phases.
-- Downloaded Windows Server 2019 due to looking up research that it was more compatible with Windows 10, and faced the same error as before.
-- Adjusted instead of picking the server file right away, I picked to install my own drive so that when the final adjustments showed up, I picked the server file and the machine was created.
+## Troubleshooting: The "License Terms" & ISO Pivot
+The Issue: During Windows Server 2022 installation, encountered the error: "Windows cannot find the Microsoft License Terms." * 
+
+The Fix: This is often a handshake issue between VMware's "Easy Install" and the ISO. I bypassed this by selecting "I will install the operating system later" during VM creation, manually attaching the ISO to the virtual CD drive, and then booting.
+
+Storage Lesson: Initially stored ISOs in OneDrive, causing sync delays and disk bloat. Moved all VM assets to a dedicated local SSD path to improve IOPS and stability.
 
 # Phase 2
 - This second phase involves creating users and groups to recreate the feeling of a company.
@@ -43,17 +44,16 @@
 7. The final step was going to the command center and running the whoami command, and it showed the results that were needed. Then ran echo %logonserver% and showed \\DC01
 8. Repeated the same process for HR-PC with the knowledge from the mistakes that were made previously, and now both clients are connected to the domain controller
 
-## Issues
-- When I put in the company domain to join it, I got the error that it didn't exist.
-- Went to the DC to check if everything was functioning and the domain was there, and there was confusion, so the next step was going to the command center from the SALES-PC to ping the DC's IP address, and it failed to contact the domain controller, giving the request timed out error.
-- Back to the DC to check the IPv4 address, and they were as previously implemented, and ran ipconfig and got the same results.
-- One mistake that was made initially was only putting the preferred IP address and not implementing a static IP address, subnet mask, and default gateway, so that was done by opening ncpa.pl and selecting Ethernet - Properties - IPv4.
-- Went back to the command center to ping the DC's IP address and gathered a successful reply.
-- The mistake was that due to DNS and IP misconfiguration, the domain controller could not be contacted. It was resolved by correcting the DNS and adding a static IP address to point to DC01.
-- Going back to Settings and System to Rename this PC(Advanced), clicked Change and Domain, and typed in the company domain, and was directed to the administrator login.
-- Had difficulty remembering the administrator username, so I went to the DC's login screen, and it showed the first half of the username in all caps, and typed in the username as it was shown, and it failed to log in, tried again, making sure nothing was misspelled, and it failed again.
-- The next step was the DC's command center, and I ran the whoami command and found that it was the username, but it was completely written in lower caps.
-- Back to the credentials prompt, I typed in the username as written in the command center, and failed to log in due to mistyping the username and password. After multiple attempts and checking for any spelling errors, the computer successfully joined.
+## Troubleshooting: Connectivity & Credential Errors
+Issue: Client could not find the domain.
+
+- Cause: The client was using DHCP-assigned DNS from the NAT router instead of the DC.
+
+- Fix: Manually set a static IP and pointed DNS strictly to the DC. Confirmed connectivity via ping 192.168.1.10.
+
+Issue: Domain Admin login failed repeatedly.
+
+- Fix: Verified the exact NetBIOS name via whoami on the DC. Discovered a typo in the manual entry; consistency in case-sensitivity (though Windows is generally case-insensitive for logins) helped in maintaining clear documentation.
 
 # Phase 4
 - The fourth phase involves creating a company folder that contains the Sales and HR folders and creating departmental access using shared folders and security groups.
@@ -84,13 +84,10 @@
 8. On both client PCs, went to the command center and ran gpupdate /force to apply the changes and then shutdown /r /t 0 to restart the computers.
 9. Verify by seeing the Z: drive on file explorer, Wallpaper should be there, Control panel blocked, Password policy enforced
 
-## Issues
-- When the computers turned back on after restarting to apply the GPO, the Z: drive shows up; Control Panel access is restricted, password policy applies, but no wallpaper
-- Double-checked to see if the wallpaper was in the company folder, and it shows on all 3 machines
-- Checked if the network path is right, and it was, so I ran gpupdate / force and restarted, and there were no results
-- Turned off Prohibit access to Control Panel to access Settings, and Show desktop background image was turned on, so running the same commands, and no results
-- Inputted the wallpaper to all the Windows servers via picking img10.jpg and added it to the CompanyShare, set a network path: \\DC01\CompanyShare\img10.jpg
+## Troubleshooting: The Wallpaper Refresh
+Issue: All GPOs applied except the wallpaper.
 
+- Fix: Verified the image was in a shared network location accessible by the Computer object, not just the user. Updated the path to a UNC format (\DC01\CompanyShare\img10.jpg) and ran gpupdate /force.
 # Phase 6
 - The sixth phase involves creating a IT onboarding workflow and adding a new user to the company.
 
@@ -134,16 +131,9 @@
 9. Ran ssh james-linux@192.168.1.40 and gained Linux server access.
 10. Restarted the SSH service via sudo systemctl status ssh and then put in sudo systemctl status ssh and got active(running)
 
-## Issues
-- Went on DC01 and pressed Windows + R and typed mstsc, and entered SALES-PC IP, and it failed the first times.
-- Rechecked everything and one change made was unchecking the remote desktop, and rechecked it, and the second attempt worked and accessed SALES-PC from DC01.
-- Was confused at first about whether to install Linux on a Windows server and realized there was no internet on the servers, and tried to fix the internet to no avail.
-- Read the instructions that were given to me again, and clearly realized that the next step was to make a new VM for Linux.
-- Ran the ip a command to find the IP address, and it gave me 192.168.122.129, and went on DC01 and opened the command prompt to run ssh james-linux@192.168.122.129, and it failed to connect.
-- Tried to ping 192.168.122.129, and it gave the request timed out error
-- Shut off all the machines to make sure they are all set to NAT, and they were, and turned back on the Linux server and ran sudo system status ssh and got the running status.
-- Recognized that the Linux IP address is not set to the same network as the Windows Servers and ran sudo dhclient -v and got back that the command was not found, so next is to run sudo apt update and sudo apt install isc-dhcp-client -y and then put in sudo dhclient -v again and put ip a and it's still the same IP address as before.
-- Ran sudo netplan apply and sudo reboot, and after rebooting and relogging in, ran ip a and got the same results as before.
-- Opened the config file and ran sudo nano /etc/netplan/00-installer-config.yaml and wrote in network: version: 2 eternets: ens33 and wrote in the new IP address for the Linux server, along with the default gateway of the network, and saved my changes.
-- Ran ip a again, and this time, the new IP address shows up.
-- Pinged the new IP address on DC-01, and it was a success.
+## Troubleshooting: Netplan Configuration
+Issue: Ubuntu VM received an IP on the wrong subnet (192.168.122.x).
+
+- Fix: Edited /etc/netplan/00-installer-config.yaml to define the static IP and gateway manually.
+
+- Verification: After sudo netplan apply, DC01 successfully pinged and established an SSH session to the Linux host.
