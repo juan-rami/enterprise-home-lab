@@ -26,9 +26,9 @@ graph TD
 Purpose: To build a domain controller to act as the central authentication server for the company in this lab.
 
 ## Server Info
-- Name: DC01
-- IP: 192.168.1.10
-- Domain: company.local
+- Name: `DC01`
+- IP: `192.168.1.10`
+- Domain: `company.local`
 
 ## Roles Installed
 - Active Directory Domain Services
@@ -64,15 +64,15 @@ Purpose: Recreate a company environment by creating Organizational Units, users,
 
 ## Users Created/Info
 John Sale
-- Username: john.sales
+- Username: `john.sales`
 - Department: Sales
 
 Mary HR
-- Username: mary.hr
+- Username: `mary.hr`
 - Department: HR
 
 IT Admin 
-- Username: it.admin
+- Username: `it.admin`
 - Department: IT
 
 ## Security Groups Created
@@ -80,8 +80,8 @@ IT Admin
 - HRUsers
 
 ## Group Memberships
-- john.sales - SalesUsers
-- mary.hr - HRUsers
+- `john.sales` - SalesUsers
+- `mary.hr` - HRUsers
 
 ## Step by Step
 - Opened Active Directory Users and Computers
@@ -109,10 +109,10 @@ Purpose: Attempting to assign employee computers and connect them to the central
 
 ## Client Machines Created
 SALES-PC
-- IP address: 192.168.1.20
+- IP address: `192.168.1.20`
 
 HR-PC
-- IP address: 192.168.1.30
+- IP address: `192.168.1.30`
 
 Both use the Windows 10 OS
 
@@ -126,7 +126,7 @@ Both use the Windows 10 OS
 - Created two Windows client virtual machines
 - Renamed both client machines 
 - Configured DNS on both clients to lead them to DC01
-- Verified connectivity using ping
+- Verified connectivity using `ping`
 - Joined both machines to the company domain
 - Restarted both machines after the domain join
 
@@ -135,8 +135,8 @@ Both use the Windows 10 OS
 - company\john.sales
 - company\mary.hr
 - Users authenticated via Domain Controller
-- Command whoami confirmed domain login
-- Command echo %logonserver% returned DC01
+- Command `whoami` confirmed domain login
+- Command `echo %logonserver%` returned DC01
 
 ## Skills Learned
 - Creating multiple client machines
@@ -153,12 +153,12 @@ Client PC
 Purpose: Create the company folder and manage file access based on department using shared folders and security groups
 
 ## Folder Structure
-C:\CompanyShare
+`C:\CompanyShare`
 - Sales
 - HR
 
 ## Shared Folder
-- \DC01\Company Share
+- `\DC01\Company Share`
 
 ## Permissions Configurations
 Sales Folder
@@ -170,7 +170,7 @@ HR Folder
 - Access: Modify
 
 ## Step by Step
-- Created the CompanyShare folder on DC-01 on the local disk(C:)
+- Created the CompanyShare folder on DC-01 on the local disk(`C:`)
 - Added both the Sales and HR folders on CompanyShare
 - Edited permissions for each folder to modify on the Security tab 
 - Added SalesUsers to the HR folder to set permissions to deny and vice versa
@@ -210,8 +210,8 @@ Password policy:
 - Minimum length: 8 characters
 
 Drive Mapping:
-- Network drive mapped to: \DC01\CompanyShare
-- Drive letter: Z:
+- Network drive mapped to: `\DC01\CompanyShare`
+- Drive letter: `Z:`
 
 Restrictions
 - Control access disabled
@@ -222,20 +222,20 @@ Restrictions
 - Linked to Sales and HR departments
 
 ## Step by Step
-- Went to DC01 and Group Policy Management and created a GPO called Company Policy inside the company.local
+- Went to DC01 and Group Policy Management and created a GPO called `Company Policy` inside the `company.local`
 - Enabled Password complexity and a minimum of 8 characters
 - Created a new mapped drive
 - Disabled control panel access
 - Right-clicked both HR and Sales OU to link them to the company policy GPO
 - Picked img10.jpg and added it to the CompanyShare, enabled desktop wallpaper, and set a network path
-- Ran gpupdate /force and shutdown /r /t 0 on the command prompt
+- Ran `gpupdate /force` and `shutdown /r /t 0` on the command prompt
 
 ## Verification
 - Drive successfully mapped on client machines
 - Control Panel access restricted
 - Password policy enforced
 - Wallpaper shows in all servers
-- Verified using gpresult
+- Verified using `gpresult`
 
 ## Skills learned
 - Creating a company group policy and deploying it
@@ -257,16 +257,16 @@ Purpose: Create an onboarding process for a new employee
 
 ## User Created/Info
 - Name: Juan Pope
-- Username: juan.pope
+- Username: `juan.pope`
 - Department: Sales
 - Group: SalesUsers
 
 ## Step by Step
 - Opened Active Directory Users and Computers
-- Went to the Sales OU and added juan.pope
-- Added juan.pope to SalesUsers
+- Went to the Sales OU and added `juan.pope`
+- Added `juan.pope` to SalesUsers
 - Logged on to SALES-PC with the juan.pope account
-- Verify that the network share drive and the CompanyShare folder are there
+- Verify that the network share drive and the `CompanyShare` folder are there
 - Checked if access to the Sales folder was allowed and the HR folder was not allowed
 
 ## Verfication
@@ -292,13 +292,13 @@ Purpose: Create an offboarding process to prevent unauthorized access.
 ## Step by Step
 - Opened Active Directory Users and Computers
 - Went to the Sales OU and disabled juan.pope
-- Removed juan.pope from SaleUsers
+- Removed `juan.pope` from SaleUsers
 - Created user folder for each member
-- Set permissions on juan.pope file and moved to a newly created archive folder
-- Removed juan.pope from the archived file properties/security tab
+- Set permissions on `juan.pope` file and moved to a newly created archive folder
+- Removed `juan.pope` from the archived file properties/security tab
 
 ## Verification
-- juan.pope cannot log on
+- `juan.pope` cannot log on
 - User cannot authenticate
 - No access to shared resources
 - Data reserved for auditing
@@ -318,13 +318,13 @@ Purpose: Create a Linux server to emulate IT support situations using remote too
 
 ## New Server Created
 Linux
-- IP address: 192.168.1.40
+- IP address: `192.168.1.40`
 
 Uses Ubuntu Desktop 24.04.4 LTS
 
 ## Step by Step
 - Enabled Remote Desktop by configuring RDP on client machines and allowing access through the firewall
-- Remote Desktop Connection from DC-01 to SALES-PC and HR-PC using mstsc and logged in with domain credentials
+- Remote Desktop Connection from DC-01 to SALES-PC and HR-PC using `mstsc` and logged in with domain credentials
 - Installed Ubuntu Desktop 24.04.4 LTS
 - Created new Linux Server VM
 - Installed OpenSSH on Linux machine and enabled it
