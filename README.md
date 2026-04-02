@@ -7,18 +7,18 @@ This is a overview of how this lab was created as you see it.
 graph TD
       Host[Your Host Computer]
       VN{Virtual Network}
-      DC01[DC01 <br/> Windows Server <br/>Domain Controller]
-      SALES-PC[SALES-PC <br/> Windows Client]
-      HR-PC[HR-PC <br/> Windows Client]
-      LINUX[LINUX-FILE <br/> Ubuntu Server]
+      DC01[DC01 <br/> Windows Server <br/>Domain Controller <b>192.168.1.10</b> ]
+      SALES-PC[SALES-PC <br/> Windows Client <b>192.168.1.20</b>]
+      HR-PC[HR-PC <br/> Windows Client <b>192.168.1.30</b>]
+      LINUX[LINUX-FILE <br/> Ubuntu Server <b>192.168.1.40</b>]
 
-      Host --- |198.168.1.1| VN
-      VN --- |198.168.1.10| DC01
-      VN --- |198.168.1.20| SALES-PC
-      VN --- |198.168.1.30| HR-PC
-      DC01 --- |198.168.1.40| LINUX
-      SALES-PC --- |198.168.1.40| LINUX
-      HR-PC --- |198.168.1.40| LINUX
+      Host --- VN 
+      VN ---  DC01
+      VN ---  SALES-PC
+      VN ---  HR-PC
+      DC01 ---  LINUX
+      SALES-PC ---  LINUX
+      HR-PC ---  LINUX
 ```
 
 # Phase 1: Building the Domain Controller/Creating the Central Authentication Server
@@ -51,7 +51,7 @@ Purpose: To build a domain controller to act as the central authentication serve
 
 ## Screenshots
 Active Directory 
-- ![active directory](https://github.com/user-attachments/assets/1b01aaee-ff58-47f7-afb4-ec71bc6c9e05)
+![active directory](https://github.com/user-attachments/assets/1b01aaee-ff58-47f7-afb4-ec71bc6c9e05)
 
 # Phase 2: Creating the Organization's Structure
 
@@ -101,7 +101,7 @@ IT Admin
 
 ## Screenshots
 Security Groups
-- ![securitygroupsphase2](https://github.com/user-attachments/assets/7cb9205d-e56a-4683-9217-b90524db49d1)
+![securitygroupsphase2](https://github.com/user-attachments/assets/7cb9205d-e56a-4683-9217-b90524db49d1)
 
 # Phase 3: Provisioning Employee Computers to the Company's Domain
 
@@ -146,7 +146,7 @@ Both use the Windows 10 OS
 
 ## Screenshots
 Client PC
-- ![Phase 3 sales pc](https://github.com/user-attachments/assets/9f03d25a-085d-4e48-b116-5dd4c7092b1f)
+![Phase 3 sales pc](https://github.com/user-attachments/assets/9f03d25a-085d-4e48-b116-5dd4c7092b1f)
 
 # Phase 4: Configuring the Shared Company Drive
 
@@ -196,9 +196,9 @@ Test 2: mary.hr
 
 ## Screenshots
 Company Folder
-- ![phase 4 companyshare folder](https://github.com/user-attachments/assets/2468e8e6-b74d-4772-8856-135bbfdcc51f)
+![phase 4 companyshare folder](https://github.com/user-attachments/assets/2468e8e6-b74d-4772-8856-135bbfdcc51f)
 Access Denied
-- ![phase 4 HR access denied](https://github.com/user-attachments/assets/aa813820-d17d-4929-8284-77441966ef34)
+![phase 4 HR access denied](https://github.com/user-attachments/assets/aa813820-d17d-4929-8284-77441966ef34)
 
 # Phase 5: Configuring Group Policy
 
@@ -245,11 +245,11 @@ Restrictions
 
 ## Screenshots
 Client Environment
-- ![phase 5 client environment ](https://github.com/user-attachments/assets/bb0a1f32-0063-4bb8-8165-8e730bac530c)
+![phase 5 client environment ](https://github.com/user-attachments/assets/bb0a1f32-0063-4bb8-8165-8e730bac530c)
 Password Policy
-- ![phase 5 password policy](https://github.com/user-attachments/assets/cef565f6-1df8-4436-b653-88d85f5a0919)
+![phase 5 password policy](https://github.com/user-attachments/assets/cef565f6-1df8-4436-b653-88d85f5a0919)
 Wallpaper
-- ![Phase 5 wallpaper](https://github.com/user-attachments/assets/a682d981-8bb7-4f66-9cb2-9296c37a8544)
+![Phase 5 wallpaper](https://github.com/user-attachments/assets/a682d981-8bb7-4f66-9cb2-9296c37a8544)
 
 # Phase 6: Emulating Real Onboarding Workflow
 
@@ -280,7 +280,7 @@ Purpose: Create an onboarding process for a new employee
 
 ## Screenshots
 Onboarding
-- ![Phase 6 new user workstation](https://github.com/user-attachments/assets/b3eeea4f-3ca7-42b1-a567-c96032328fd8)
+![Phase 6 new user workstation](https://github.com/user-attachments/assets/b3eeea4f-3ca7-42b1-a567-c96032328fd8)
 
 # Phase 7: Emulating Real Offboarding Removal
 
@@ -310,7 +310,7 @@ Purpose: Create an offboarding process to prevent unauthorized access.
 
 ## Screenshots
 Offboarding
-- ![phase 7 disabled](https://github.com/user-attachments/assets/a81ba6eb-bcfb-4186-b324-462b1788f89e)
+![phase 7 disabled](https://github.com/user-attachments/assets/a81ba6eb-bcfb-4186-b324-462b1788f89e)
 
 # Phase 8: Remote Administration
 
@@ -345,9 +345,9 @@ Uses Ubuntu Desktop 24.04.4 LTS
 
 # Screenshots
 Remote Desktop
-- ![Phase 8 remote desktop](https://github.com/user-attachments/assets/be0af3a1-bf2b-4e21-9fa3-0ab752db3d7b)
+![Phase 8 remote desktop](https://github.com/user-attachments/assets/be0af3a1-bf2b-4e21-9fa3-0ab752db3d7b)
 SSH
-- ![phase 8 remote ssh](https://github.com/user-attachments/assets/b72a4f4d-2c4a-4b7f-8c16-139069df2a76)
+![phase 8 remote ssh](https://github.com/user-attachments/assets/b72a4f4d-2c4a-4b7f-8c16-139069df2a76)
 
 
 
