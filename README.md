@@ -27,7 +27,7 @@ Purpose: To build a domain controller to act as the central authentication serve
 
 ## Server Info
 - Name: DC01
-- IP: 192.168.1.10
+- IP: '192.168.1.10'
 - Domain: company.local
 
 ## Roles Installed
