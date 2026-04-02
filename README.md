@@ -244,7 +244,7 @@ Restrictions
 ## Password Policy
 ![phase 5 password policy](https://github.com/user-attachments/assets/cef565f6-1df8-4436-b653-88d85f5a0919)
 ## Wallpaper
-![Phase 5 wallpaper](https://github.com/user-attachments/assets/a682d981-8bb7-4f66-9cb2-9296c37a8544)
+![Phase 5 wallpaper2](https://github.com/user-attachments/assets/02298fd4-384a-49e3-96bd-3dd9eb86a168)
 
 # Phase 6: Emulating Real Onboarding Workflow
 
