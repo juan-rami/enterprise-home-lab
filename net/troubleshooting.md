@@ -87,7 +87,7 @@ Issue: Domain Admin login failed repeatedly.
 ## Troubleshooting: The Wallpaper Refresh
 Issue: All GPOs applied except the wallpaper.
 
-- Fix: Verified the image was in a shared network location accessible by the Computer object, not just the user. Updated the path to a UNC format `(\DC01\CompanyShare\img10.jpg)` and ran `gpupdate /force`.
+- Fix: Verified the image was in a shared network location accessible by the Computer object, not just the user. Updated the path to a UNC format `(\DC01\CompanyShare\img4.jpg)` and ran `gpupdate /force`.
 
 # Phase 6
 - The sixth phase involves creating a IT onboarding workflow and adding a new user to the company.
