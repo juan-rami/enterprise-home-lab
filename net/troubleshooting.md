@@ -9,7 +9,7 @@
 1. Using VMware Workstation Player and created a Windows Server VM and named it `DC01` with a Windows Server ISO file.
 2.  Went to the `control panel - Network and Sharing center and clicked Change adapter settings`; `right-clicked Ethernet and selected Properties and picked IPv4` to set a static IP address: `192.168.1.10`, subnet mask: `255.255.255.0`, default gateway: `192.168.1.1`, and DNS server: `192.168.1.10`.
 3. Right-clicked This PC and properties, and clicked Rename the PC to `DC01`, and restarted the computer for the changes to take effect.
-4. Opened `Server Manager and clciked roles and Features and selected role-based installation to check Active Directory Domain Services` and install it.
+4. Opened `Server Manager and clicked roles and Features and selected role-based installation to check Active Directory Domain Services` and install it.
 5. A notification flag came up, and selected `Promote this server to a domain controller, chose Add a new forest`, and entered the `company.local` domain and set the password.
 6. The administrator account was created and was successfully able to log in with the password that I set up
 
